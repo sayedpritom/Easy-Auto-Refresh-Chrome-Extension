@@ -1,0 +1,5 @@
+AuSeMe
+│--manifest.json
+│--contentScript.js
+│--popup.html
+│--popup.js

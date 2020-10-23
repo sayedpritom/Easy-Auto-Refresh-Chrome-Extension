@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'self';"> -->
+    <title>Traversy Launcher</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <style>
+        html, body {
+            font-family: "Open Sans", sans-serif;
+            font-size: 14px;
+            margin: 0;
+            padding: 0;
+            min-height: 180px;
+            width: 384px;
+            text-align:center;
+        }
+        .container {
+            padding: 20px 0;
+        }
+        img {
+            width: 30px;
+        }
+        .modal-header {
+            align-items: center;
+            border-bottom: solid .5px #dadada;
+        }
+        .logo {
+            padding: 16px;
+        }
+        .logo-icon {
+            vertical-align: text-bottom;
+            margin-right: 10px;
+
+        }
+        .version {
+            color: #444;
+            font-size: 18px;
+
+        }
+        /* ========================================== */
+        button {
+            box-shadow:inset 0px 1px 0px 0px #fff6af;
+            background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+            background-color:#ffec64;
+            border-radius:6px;
+            border:1px solid #ffaa22;
+            display:inline-block;
+            cursor:pointer;
+            color:#333333;
+            font-family:Arial;
+            font-size:15px;
+            font-weight:bold;
+            padding:6px 24px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #ffee66;
+        }
+
+        button:hover {
+            background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+            background-color:#ffab23;
+        }
+        button:active {
+            position:relative;
+            top:1px;
+        }
+        input {
+            border: none;
+            background: beige;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="modal-header">
+        <h1 class="logo">
+            <img src="images/logo.png" alt="logo image" class="logo-icon">
+            Easy Auto Refresh <span class="version">(1.0.0)</span>
+        </h1>
+        <div><h3><span id="time">00:00</span></h3></div>
+        <br>        
+    </div>
+    <div class="container">
+        <div class="mins">
+            <h4>Set Delay Time (minutes): </h4>
+            <button class="min">1</button>
+            <button class="min">2</button>
+            <button class="min">3</button>
+            <button class="min">4</button>
+            <button class="min">5</button>
+            <button class="min">6</button>
+        </div>
+
+        <h4>Or Enter Custom Seconds:</h4>
+
+        <form id="setCustomTime">
+            <label for="custom-seconds"></label>
+            <input type="text" id="custom-seconds" name="custom-seconds" placeholder="Seconds">
+            <button type="submit" id="customTimeBtn">submit</button>
+
+        </form>
+
+
+        <h4>Or Refresh Randomly Between:</h4>
+
+        <form id="randomInputForm" class="form">
+            <label for="from">From:</label>
+            <input type="text" id="from" name="from" placeholder="Seconds"><br><br>
+            <label for="to">To:</label>
+            <input type="text" name="to" id="to" placeholder="Seconds"><br><br>
+            <button type="submit" id="randomBtn">Submit</button>
+        </form>
+
+        <!-- <input id="from" placeholder="60" type="text"> <p>to</p>
+        <input id="to" placeholder="300" type="text">
+
+        onclick="(() => {
+            sessionStorage.setItem('minTime', null);
+            sessionStorage.setItem('maxTime', null);
+            })()"
+
+        <button type="submit">submit</button> -->
+        <br>
+        <button id="stopBtn">Stop</button>
+        <!-- <button id="reloadMe" onclick="() => console.log('x')">Reload</button> -->
+        <button id="button1">Refresh</button>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
