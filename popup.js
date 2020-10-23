@@ -12,7 +12,7 @@ function startTimer(duration, display) {
         
         if (--timer < 0) {
             console.log("now");
-            popup(1)
+            // popup(1)
             timer = duration;
         }
     }, 1000);
@@ -50,7 +50,8 @@ const setCustomTime = document.getElementById("setCustomTime");
 setCustomTime.addEventListener('submit', (e) => {
     e.preventDefault();
     const time = document.getElementById('custom-seconds').value;
-    sessionStorage.setItem('time', time);
+    // sessionStorage.setItem('time', time);
+    popup([time, "setCustomTime"])
     location.reload();
 })
 
@@ -59,34 +60,35 @@ randomInput.addEventListener('submit', (e) => {
       const min = document.getElementById('from').value;
       const max = document.getElementById('to').value;
 
-      sessionStorage.setItem('minTime', min);
-      sessionStorage.setItem('maxTime', max);
+    //   sessionStorage.setItem('minTime', min);
+    //   sessionStorage.setItem('maxTime', max);
+      popup([min,max, "randomInput"])
       location.reload();
     })
 
-let timeInput = parseInt(sessionStorage.getItem("time"));
-let randomTime = () => {
-    let minTime = parseInt(sessionStorage.getItem("minTime"));
-    let maxTime = parseInt(sessionStorage.getItem("maxTime"));
-    const diff = maxTime - minTime;
-    const time = (Math.random()*diff)+parseInt(minTime);
-    console.log(time)
-    return time;
-}
-const randomTime2 = randomTime();
-if(timeInput) {
-    countdown(timeInput);
-    setInterval(() => {
-        // popup(timeInput*1000)
-    }, (timeInput*1000));
-}
-else if(randomTime2) {
-    setInterval(() => {
-        location.reload();
-        popup(randomTime2*1000)
-        console.log(randomTime2);
-    }, (randomTime2*1000));
-}
+// let timeInput = parseInt(sessionStorage.getItem("time"));
+// let randomTime = () => {
+//     let minTime = parseInt(sessionStorage.getItem("minTime"));
+//     let maxTime = parseInt(sessionStorage.getItem("maxTime"));
+//     const diff = maxTime - minTime;
+//     const time = (Math.random()*diff)+parseInt(minTime);
+//     console.log(time)
+//     return time;
+// }
+// const randomTime2 = randomTime();
+// if(timeInput) {
+//     countdown(timeInput);
+//     setInterval(() => {
+//         // popup(timeInput*1000)
+//     }, (timeInput*1000));
+// }
+// else if(randomTime2) {
+//     setInterval(() => {
+//         location.reload();
+//         popup(randomTime2*1000)
+//         console.log(randomTime2);
+//     }, (randomTime2*1000));
+// }
 
 document.getElementById("stopBtn").addEventListener('click', () => {
     sessionStorage.setItem('minTime', null);
