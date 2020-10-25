@@ -3,6 +3,7 @@
     "manifest_version": 2,
     "name": "Easy Auto Refresh",
     "version": "0.1",
+    "icons": {"128": "icon_128.png"},
     "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
@@ -10,7 +11,7 @@
     }
   ],
   "browser_action": {
-    "default_icon": "icon_128.png",
+    
       "default_popup":"popup.html"
   },
   "background": {
